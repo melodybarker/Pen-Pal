@@ -1,0 +1,19 @@
+body {
+
+}
+
+
+#letter {
+  display: flex;
+  width: 15rem;
+
+
+}
+
+ {
+  list-style-type: none;
+  background-color: rgba(0, 0, 255, 0.598);
+  border-radius: 10px;
+  margin-right: 15rem;
+
+}
