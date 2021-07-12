@@ -1,19 +1,20 @@
 import { getLetters } from "./dataAccess.js";
 
 export const Letters = () => {
+  let html = "<ul>"
+
   const letters = getLetters();
 
-  let html = `<ul>
-  ${letters
-    .map((letter) => {
-      return `<li>
+  html += letters.map(letter => {
+    return `<li>
     ${letter.letter}
+    ${letter.author}
+    ${letter.topic}
     ${letter.recipient}
+    </li>
+    `
+  }).join("")
+  html += "</ul>"
 
-    </li>`;
-    })
-    .join("")}
-</ul>
-    `;
-  return html;
-};
+  return html
+}

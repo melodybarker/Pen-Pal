@@ -1,28 +1,24 @@
-const mainContainer = document.querySelector("#container");
+import { getTopics } from "./dataAccess.js"
 
-const API = " http://localhost:3000";
+const topicArray = []
+document.addEventListener("change",
+  (event) => {
+    if (event.target.name === "topics")
+     topicArray.push(event.target.value)
+  })
 
-export const fetchTopics = () => {
-  return fetch(`${API}/topics`)
-    .then((res) => res.json())
-    .then((serviceRequests) => {
-      applicationState.topics = serviceRequests;
-    });
-};
+export const Topics = () => {
+  const topics = getTopics()
+  let html = "<ul>"
 
-export const getTopics = () => {
-  return applicationState.topics.map((topic) => ({...topic}))};
-
-const Topics = () => {
-  const topics = getTopics
-  let html = `<ul>
-  ${topics
-    .map((topic) => {
+  html += topics.map(topic => {
       return `<li>
-      ${topic.name}
-      </li>`
-    })
-    .joing("")}
-    </ul>
-  `
+        <input type="checkbox" name="topics" value="${topic.id}" /> ${topic.name}
+
+      </li>`;
+  }).join("")
+
+  html += "</ul>"
+
+  return html
 }

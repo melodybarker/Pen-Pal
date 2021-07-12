@@ -1,5 +1,13 @@
 import { LetterOptions } from "./LetterOptions.js";
 import { Letters } from "./Letters.js";
+import { sendNewLetter } from "./dataAccess.js"
+
+
+// document.addEventListener("click",
+// (event) => {
+//   if(event.target.id === "submitRequest")
+//   sendNewLetter()
+// })
 
 export const PenPalList = () => {
   return `
@@ -7,7 +15,10 @@ export const PenPalList = () => {
   <section class = "letterOptions">
     ${LetterOptions()}
   </section>
-  <section class = "lettersSent">
+
+  </div>
+  </select>
+
   <h1>Letters</h1>
   ${Letters()}
   </section>
